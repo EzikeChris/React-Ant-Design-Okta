@@ -11,4 +11,13 @@ const LoginForm = ({baseUrl, issuer}) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const oktaAuth = new OktaAuth({ url: baseUrl, issuer: issuer });
+    oktaAuth.signIn({ username, password })
+      .then(res => setSessionToken(res.sessionToken))
+      .catch(err => setError(err));
 }
