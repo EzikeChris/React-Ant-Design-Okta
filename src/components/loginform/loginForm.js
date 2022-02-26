@@ -7,5 +7,8 @@ import { Form, Input, Button, Alert, Row, Col } from 'antd';
 
 const LoginForm = ({baseUrl, issuer}) => {
   const { authService } = useOktaAuth();
-  
+  const [sessionToken, setSessionToken] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [error, setError] = useState();
 }
